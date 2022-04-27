@@ -1,0 +1,131 @@
+<!DOCTYPE html5>
+<html lang="en">
+
+<head>
+  <title>Gallery</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="static/css/index.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="static/js/index.js"></script>
+
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse nav_grad">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="nav_f navbar-brand" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+          <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"/>
+        </svg></a>
+        <a class="nav_f navbar-brand" href="/" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">JAI ANANDHA SCHOOL OF DANCE</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav_ff nav navbar-nav">
+          <li><a href="/events">Events</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/payment">Payment</a></li>
+        </ul>
+        <ul class="nav_ff nav navbar-nav navbar-right">
+          <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="static/jpg/1.jpg" class="gallery_img" alt="...">
+      </div>
+      {% for i in range(2,11) %}
+      <div class="carousel-item">
+        <img src="static/jpg/{{i}}.jpg" class="gallery_img" alt="...">
+      </div>
+      {% endfor %}
+    </div>
+    
+    <button class="left_button carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="right_button carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> -->
+
+  <div class="container-fluid pb-video-container">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="row pb-row">
+        {% for i in range(11) %}
+        <div class="col-md-3 pb-video">
+          <div class="vid_box">
+            <video onmouseover="
+                    this.play();
+                    const myTimeout = setTimeout(stopvid, 180000);
+
+                    function stopvid() {
+                        this.pause();this.currentTime=0;
+                    }
+
+                    " width="100%" height="230" muted controls>
+              <source src="static/vid/{{ i+1 }}.mp4#t=0,5" type="video/mp4">
+              <source src="movie.ogg" type="video/ogg">
+              Your browser does not support the video tag.
+          </div>
+          </video>
+          <!-- <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/K68UrdUOr2Y?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe> -->
+          <a href="/payment"><label class="form-control label-warning text-center">BUY</label></a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .pb-video {
+      border: 1px solid #e6e6e6;
+      padding: 5px;
+    }
+
+    .pb-video:hover {
+      background: #2c3e50;
+    }
+
+    .pb-video-frame {
+      transition: width 2s, height 2s;
+    }
+
+    .pb-video-frame:hover {
+      height: 300px;
+    }
+
+    .pb-row {
+      margin-bottom: 10px;
+    }
+  </style>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="static/js/video.js"></script>
+</body>
+
+</html>

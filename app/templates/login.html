@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <title>DanceWeb</title>
+</head>
+
+<body>
+    <div class='nav-brand'>
+        <a href='/'>
+            <div class="back_but">
+                <img src='static/img/back_button_2.png' alt='back_button' width='50px' height='50px'>
+            </div>
+        </a>
+    </div>
+    <div class="container">
+        <div class="row reg_font">
+            <div class="col-lg-3 col-md-2"></div>
+
+            <div class="col-lg-6 col-md-8 login-box">
+                <div class="col-lg-12 login-key">
+                    <i class="bi bi-stars"></i>
+                </div>
+                <br>
+                <p style="color: white; font-size: large; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;">JAI ANANDHA SCHOOL OF DANCE</p>
+                <div class="col-lg-12 login-key">
+                    <i class="bi bi-lock"></i>
+                </div>
+                <div class="col-lg-12 login-title">
+                    LOGIN
+                </div>
+                <div class="col-lg-12 login-form">
+                    <div class="col-lg-12 login-form">
+                        <form id="loginForm" action="/login" method="post">
+                            <div class="form-group">
+                                <label class="form-control-label">USER NAME</label>
+                                <input type="text" name="username" class="form-control" id="validationDefaultUsername"
+                                    aria-describedby="inputGroupPrepend2" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">PASSWORD</label>
+                                <input type="password" name="password" class="form-control"
+                                    id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
+                            </div>
+                            <div class="col-lg-12 loginbttm">
+                                <div class="col-lg-6 login-btm login-text">
+                                    <!-- Error Message -->
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="col-lg-6 login-btm login-button">
+                        <button id="submitButton" type="submit" class="btn btn-outline-primary">LOGIN</button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-2"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById('loginForm');
+        const submitButton = document.getElementById("submitButton");
+        const count = form ? form.length - 1 : 0;
+        let fields = []
+        if (submitButton) {
+            submitButton.addEventListener('click', function (event) {
+                for (let i = 0; i <= count; i += 1) {
+                    fields[i] = form[i].value;
+                }
+                console.log(fields);
+                let isalphanum = /^[a-zA-Z0-9]+$/.test(fields[0]);
+                if(fields[0] == "" || !isalphanum){
+                    alert("Please enter valid User Name");
+                }
+                else if(fields[1] == ""){
+                    alert("Please enter valid Password");
+                }
+                else{
+                    form.submit();
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
